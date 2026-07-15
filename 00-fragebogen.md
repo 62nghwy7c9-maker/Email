@@ -1,8 +1,51 @@
-# Fragebogen: E-Mail-Triage für 4 Postfächer
+# Fragebogen: E-Mail-Triage für 4 Postfächer (v2)
 
+**Teil 1** = bereits ermittelte Daten (bitte gegenprüfen) · **Teil 2** = offene Fragen.
 **So funktioniert's:** Kreuze an, indem du `[ ]` durch `[x]` ersetzt, und fülle die Freitextfelder aus.
 Wenn du etwas nicht weißt: Kreuze „Weiß ich nicht" an — bei jeder Frage steht, wie du es herausfinden kannst (oder ich helfe dir dabei).
-**Wenn dieser Bogen ausgefüllt ist, kann ich direkt mit der Planung beginnen (Phase 1–3), ohne weitere Rückfragen.**
+**Wenn Teil 2 ausgefüllt ist, kann ich direkt mit der Planung beginnen (Phase 1–3), ohne weitere Rückfragen.**
+
+---
+
+# TEIL 1 — Bereits ermittelt (bitte gegenprüfen)
+
+*Quelle: ausschließlich öffentliche Verzeichnisse (MX-, Autodiscover-, SPF-Einträge und Microsofts Verzeichnisdienst). Kein Login, keine Mail-Inhalte. Die reinen Daten stehen in `Code-Markierung` — in der PDF-Version gelb hervorgehoben.*
+
+## ✔ A1 beantwortet: Der E-Mail-Anbieter
+
+| Domain | Anbieter | Besonderheit |
+|---|---|---|
+| planvoller.de | `Microsoft 365` | `Hornetsecurity` vorgeschaltet |
+| aim-wohnbau.de | `Microsoft 365` | `Hornetsecurity` vorgeschaltet |
+| durchgeplant.de | `Microsoft 365` | direkt, ohne Vorfilter |
+| burk-keller.de | `Microsoft 365` | direkt, ohne Vorfilter |
+
+*(Warum wichtig: Microsoft 365 heißt, der sichere Programm-Zugang **Graph-API** ist bei allen 4 verfügbar. Graph-API = Microsofts offizieller Zugang für Programme, bei dem sich Rechte exakt festlegen lassen — z.B. „darf nur lesen, niemals senden". Deine Regel „KI sendet niemals Mails" wird damit technisch erzwungen, nicht nur versprochen. Konsequenz: beste Ausgangslage.)*
+
+*(Was ist Hornetsecurity: ein deutscher Sicherheits-Dienst, der eingehende Post **vor** Microsoft prüft — ein Pförtner, der Spam/Viren abfängt. Konsequenz: gut für Sicherheit, für unser Projekt neutral. Indiz: So etwas richtet üblicherweise ein **IT-Dienstleister** ein → relevant für A3 und H5.)*
+
+## ✔ A2 beantwortet: 4 getrennte Microsoft-Verbünde („Tenants")
+
+| Domain | Verbund-Nummer (Tenant-ID) |
+|---|---|
+| planvoller.de | `f9032dff-94c4-43b2-8ab8-6d33a9c28555` |
+| aim-wohnbau.de | `5be4e792-3805-4a49-a71e-9dd6384e2056` |
+| durchgeplant.de | `ad2158ae-c05f-4db1-894a-49eae5718ce9` |
+| burk-keller.de | `592d3aa8-2229-4e1f-abcc-a923147ed9e9` |
+
+*(Was ist ein Tenant: Microsofts Cloud ist ein Bürohochhaus; jede Firma mietet eine abgeschlossene Etage — den „Tenant". Alle 4 Nummern sind **verschieden** → deine Firmen wohnen auf **4 verschiedenen Etagen**, ohne Verbindungstür.)*
+
+*(Konsequenz 1: Der KI-Assistent braucht **4 separate „Schlüsselkarten"** — Nur-Lesen-Zugang je Firma einzeln einrichten. Machbar, aber 4× Aufwand. Konsequenz 2: Datenschutzrechtlich ist die Trennung sogar sauberer. Ob man zusammenlegt → Phase 1.)*
+
+### Bitte gegenprüfen — passt das zu deinem Alltag?
+
+Musst du dich für jede Firma separat anmelden bzw. in Outlook zwischen 4 Konten wechseln?
+- [ ] Ja, stimmt *(→ 4 Tenants korrekt ermittelt)*
+- [ ] Nein, ich sehe alles mit einem Login *(→ bitte melden!)*
+
+---
+
+# TEIL 2 — Offene Fragen
 
 Die 4 Postfächer:
 
@@ -17,46 +60,18 @@ Die 4 Postfächer:
 
 ---
 
-## Block A — Technik: Wo liegen deine E-Mails?
+## Block A — Technik: Restfragen
 
-### A1. Welchen E-Mail-Anbieter nutzt du für die Firmen-Adressen?
+*A1 + A2 sind bereits beantwortet (siehe Teil 1) — es bleiben A3 bis A5.*
 
-*So findest du es heraus: Wo loggst du dich ein, um Mails zu lesen? Bzw.: An wen zahlst du monatlich für E-Mail? Schau auf die Rechnung deines Anbieters.*
+### A3. Wer hat Admin-Zugriff auf die 4 Microsoft-365-Verbünde?
 
-- [ ] Microsoft 365 (Outlook im Firmenpaket, Login über office.com / outlook.office.com)
-- [ ] IONOS
-- [ ] Strato
-- [ ] All-Inkl / Hetzner / anderer deutscher Webhoster: ______________
-- [ ] Google Workspace (Gmail für Firmen)
-- [ ] GMX / Web.de
-- [ ] Gemischt — nicht alle 4 Adressen beim selben Anbieter *(dann bitte unten pro Adresse eintragen)*
+*Gemeint ist: Wer kann Einstellungen für die ganze Firma ändern — Postfächer anlegen, Rechte vergeben? Nötig, um dem KI-Assistenten die fein abgestuften „Nur-Lesen"-Rechte einzurichten — bei euch 4×, einmal je Verbund. Vermutung aus Teil 1: Der Hornetsecurity-Filter wurde wahrscheinlich von einem IT-Dienstleister eingerichtet — wer betreut eure IT?*
+
+- [ ] Ich selbst (bei allen 4)
+- [ ] Mein IT-Dienstleister (Name/Firma: ______________)
+- [ ] Unterschiedlich je Firma: ______________
 - [ ] Weiß ich nicht
-
-Falls gemischt, pro Adresse:
-
-| Adresse | Anbieter |
-|---|---|
-| moewes@planvoller.de | |
-| hm@aim-wohnbau.de | |
-| hm@durchgeplant.de | |
-| hm@burk-keller.de | |
-
-### A2. Falls Microsoft 365: Sind alle 4 Adressen im selben Microsoft-Konto-Verbund („Tenant")?
-
-*So findest du es heraus: Kannst du in Outlook mit EINEM Login alle 4 Postfächer sehen, oder musst du dich für jede Firma separat an-/abmelden?*
-
-- [ ] Ja, ein Verbund — ein Login zeigt (oder könnte zeigen) alle 4
-- [ ] Nein, getrennte Verbünde pro Firma
-- [ ] Kein Microsoft 365 (Frage entfällt)
-- [ ] Weiß ich nicht
-
-### A3. Hast du (oder dein IT-Dienstleister) Admin-Zugriff auf das E-Mail-System?
-
-*Gemeint ist: Kann jemand Einstellungen für die ganze Firma ändern — neue Postfächer anlegen, Rechte vergeben? Wichtig, weil wir dem KI-Agenten später fein abgestufte „Nur-Lesen"-Rechte geben wollen.*
-
-- [ ] Ja, ich selbst
-- [ ] Ja, mein IT-Dienstleister (Name/Firma: ______________)
-- [ ] Nein / weiß ich nicht
 
 ### A4. Womit liest du heute deine Mails? (Mehrfachauswahl)
 
@@ -68,9 +83,9 @@ Falls gemischt, pro Adresse:
 
 ### A5. Bei wem sind die 4 Domains (die Namen nach dem @) registriert?
 
-*So findest du es heraus: Wer schickt dir die Jahresrechnung für „planvoller.de" usw.? Oft derselbe wie A1, aber nicht immer.*
+*So findest du es heraus: Wer schickt dir die Jahresrechnung für „planvoller.de" usw.? Die Mails laufen bei Microsoft (Teil 1) — der Domain-NAME kann trotzdem woanders gemietet sein (IONOS, Strato …). Nur fürs Gesamtbild wichtig, keine Eile.*
 
-- [ ] Gleicher Anbieter wie in A1
+- [ ] Direkt bei Microsoft
 - [ ] Anderer: ______________
 - [ ] Unterschiedlich pro Domain: ______________
 - [ ] Weiß ich nicht
@@ -358,7 +373,7 @@ ______________________________________________________________
 
 Kurzer Selbst-Check — diese fünf sind die kritischen:
 
-- [ ] A1 (Anbieter) beantwortet
+- [ ] Teil 1 gegengeprüft (4 separate Logins — ja/nein?)
 - [ ] B1 (Postfach/Alias) ausgefüllt — notfalls mit „weiß nicht"
 - [ ] D1 + D2 (10 Beispiele) vollständig — **ohne die geht es nicht**
 - [ ] E1 (Datenabfluss) entschieden
