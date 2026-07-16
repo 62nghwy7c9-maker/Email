@@ -13,13 +13,13 @@ Deine Lage (4 eigene Postfächer in 4 getrennten Tenants) klingt kompliziert, is
 
 | Weg | Was es ist | Bewertung für dich |
 |---|---|---|
-| **Alle 4 Konten in einem Outlook (PC)** | Outlook am PC kann beliebig viele Konten aus verschiedenen Tenants gleichzeitig zeigen — jedes Konto behält Posteingang, Signatur, Absenderadresse | ✅ **Empfohlen.** Vermutlich hast du das teilweise schon |
-| **Alle 4 Konten in der Outlook-App (iPhone)** | Die Outlook-App fürs Handy hat einen **„Alle Konten"-Posteingang**: eine einzige Liste über alle 4 Postfächer | ✅ **Empfohlen — ersetzt deine Apple-Mail-Zentrale.** Wichtig wegen Fehlerfall Nr. 3 (s.u.) |
+| **Alle 4 Konten in der Outlook-App (iPhone)** | Die Outlook-App fürs Handy hat einen **„Alle Konten"-Posteingang**: EINE Liste, alle 4 Postfächer chronologisch vermischt | ✅ **Empfohlen — der einzige echte native Überblick.** Ersetzt Apple Mail; wichtig auch wegen Fehlerfall Nr. 3 (s.u.) |
+| **Alle 4 Konten in einem Outlook (PC)** | Outlook am PC zeigt alle Konten *nebeneinander* (4 Posteingänge in der linken Spalte). **Ehrlich: eine verschmolzene Einzelliste wie auf dem Handy gibt es am PC nicht zuverlässig.** Bester Trick: alle 4 Posteingänge per Rechtsklick zu den **Favoriten** pinnen → gestapelt ganz oben, 4 Klicks statt 4 Logins | ⚠️ **Milderung, kein Überblick.** Der echte PC-Gesamtüberblick bleibt Rest-Problem → wird das Briefing des Agenten (R2) |
 | Shared Mailbox („geteiltes Postfach") | Ein gemeinsames Postfach, in das alle Mails fließen | ❌ Geht nicht über Tenant-Grenzen hinweg; bei dir irrelevant, da nur du liest |
 | Weiterleitung alles in 1 Postfach | Alle Mails automatisch in ein Hauptpostfach kopieren | ❌ Zerstört die saubere Firmen-Trennung beim Antworten; Datenschutz-Vermischung. Nicht tun |
 | Tenants zusammenlegen | Alle 4 Firmen in einen Microsoft-Verbund migrieren | ❌ Großprojekt, rechtlich heikel (4 Verantwortliche), Nutzen gering. Nicht tun |
 
-**Fazit Bündelung:** Kein Adminprojekt nötig. PC-Outlook + Handy-Outlook-App mit allen 4 Konten = eine Übersicht, saubere Trennung bleibt.
+**Fazit Bündelung:** Kein Adminprojekt nötig, saubere Trennung bleibt. Aber differenziert: **Handy = echter Überblick nativ** („Alle Konten"-Liste), **PC = nur Milderung** (Favoriten-Stapel). Der priorisierte Gesamtüberblick am PC — alle 4 Konten in EINER nach Wichtigkeit sortierten Sicht — ist nativ nicht zu haben und wandert als Kernauftrag ins Briefing des Agenten (R2).
 
 ### A2. Dein Fehlerfall Nr. 3 (übersehene Rechnungen) ist ein reiner Regel-Fix — keine KI nötig
 
@@ -66,7 +66,7 @@ Das ist **genau dein Constraint-Verstoß**: eine falsch einsortierte Interessent
 | # | Rest-Problem | Warum Bordmittel scheitern |
 |---|---|---|
 | **R1** | **Unbekannte/neue Absender einordnen:** Ist das ein Interessent mit Kaufsignal? Ein Bestandskunde mit Eskalation? | Regeln kennen nur eingetragene Absender; Kaufsignale („Was kostet…?", „Vertrag unterschreiben") und Eskalationston stehen im *Inhalt* — den liest kein Bordmittel |
-| **R2** | **Tägliches Briefing 7:30 Uhr** über alle 4 Konten: je Mail 1 Satz Kern, Frist, nächster Schritt; gegliedert nach Handlungsbedarf heute / Woche / FYI / Rauschen (+ Excel) | Existiert nativ schlicht nicht |
+| **R2** | **Der Gesamtüberblick = tägliches Briefing 7:30 Uhr** über alle 4 Konten: je Mail 1 Satz Kern, Frist, nächster Schritt; gegliedert nach Handlungsbedarf heute / Woche / FYI / Rauschen (+ Excel). **Das ist die Antwort auf „alle Postfächer einzeln, kein Überblick"** — nativ gibt es diese verschmolzene, nach Wichtigkeit sortierte Sicht am PC nicht | Existiert nativ schlicht nicht (PC: nur Favoriten-Stapel; Handy: Liste ohne Priorisierung) |
 | **R3** | **Zusammenfassung statt Löschung** von Werbung/CC-Mails (dein Recall-Schutz) | Regeln können nur verschieben/löschen, nicht komprimieren |
 | **R4** | **Fristen aus Mailtext ziehen** („bis zum 24.07.") und in Briefing/Alarm heben | Kein Bordmittel liest Fließtext |
 | **R5** | **Todos mit Kontext erzeugen** („Rückruf Familie X wegen Nachtrag, bis Fr") in To Do | Flag→To Do überträgt nur die Mail, versteht sie nicht |
