@@ -34,7 +34,7 @@ Verantwortliche Nutzerin: Kira Moewes — einzige Leserin/Beantworterin aller 4 
 
 | Priorität | Definition |
 |---|---|
-| **Prio 1** | Kunden & Geschäftspartner — insbesondere: Bestandskunde mit Rückfrage/Problem im Bauablauf (Eskalationsgefahr) · Kaufinteressent in Verhandlung („Was kostet?", „wollen Vertrag machen") → braucht schnelle Antwort |
+| **Prio 1** | Kunden & Geschäftspartner — zwei Leitfälle: **(a) Bestandskunde** mit Rückfrage oder Eskalation — etwas läuft schief oder ist unklar (Bauablauf, Problem) → Eskalationsgefahr, unzufriedener Kunde. **(b) Interessent (noch nicht gekauft)** — Kaufsignale wie „Was kostet …?", „Können wir …?", „Vertrag unterschreiben" → braucht schnelle Antwort, sonst entgeht das Geschäft |
 | **Prio 2** | Behörden, Finanzen, Rechtliches |
 | **Unwichtig** | Werbung · Info-/CC-Mails — **aber: nicht verwerfen, sondern komprimiert zusammenfassen** (Recall-Schutz: falls doch etwas Wichtiges dabei ist) |
 
