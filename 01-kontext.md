@@ -1,51 +1,82 @@
-# 01-kontext.md — ENTWURF (Stand 15.07.2026, Phase 0 zu ~60 % abgeschlossen)
+# 01-kontext.md — Phase 0 abgeschlossen (Stand 16.07.2026)
 
-## A. Gesichert: Infrastruktur (öffentliche Daten + Bestätigung durch Kira)
+Verantwortliche Nutzerin: Kira Moewes — einzige Leserin/Beantworterin aller 4 Postfächer.
 
-| Domain | Firma/Zweck | Anbieter | Tenant-ID | Besonderheit |
-|---|---|---|---|---|
-| planvoller.de | Neubau / Sanierung | Microsoft 365 | f9032dff-… | Hornetsecurity vorgeschaltet |
-| aim-wohnbau.de | Hausbau (andere Firmen) | Microsoft 365 | 5be4e792-… | Hornetsecurity vorgeschaltet |
-| durchgeplant.de | Einzelperson | Microsoft 365 | ad2158ae-… | direkt |
-| burk-keller.de | Maklerbüro | Microsoft 365 | 592d3aa8-… | direkt |
+---
 
-- **4 getrennte Tenants**, von Kira bestätigt („alles einzeln") → Agent braucht 4 separate App-Registrierungen / Read-only-Berechtigungen.
-- **Admin-Zugriff: Kira selbst, bei allen 4** (A3) → kein IT-Dienstleister nötig für die Einrichtung; Graph-API-Weg ist frei.
-- Alle 4 Adressen sind **eigene Postfächer** mit eigenem Login (B1).
-- **Nur Kira** liest und beantwortet alle 4 (B2) → keine Mitleser, vereinfacht Datenschutz erheblich.
-- Antworten erfolgen heute **immer von der richtigen Firmenadresse** (B3) → das Vermischungsrisiko liegt v.a. in der Zukunft (Entwurfs-Phase), nicht im Ist.
+## 1. Infrastruktur (verifiziert über öffentliche DNS-/Verzeichnisdaten + Bestätigung)
 
-## B. Gesichert: Arbeitsweise & Volumen
+| # | Postfach | Firma / Zweck | Rechtsform | Anbieter | Tenant-ID | Besonderheit |
+|---|---|---|---|---|---|---|
+| 1 | moewes@planvoller.de | Neubau / Sanierung | GmbH | Microsoft 365 | f9032dff-… | Hornetsecurity vorgeschaltet |
+| 2 | hm@aim-wohnbau.de | Hausbau (andere Firmen) | GmbH | Microsoft 365 | 5be4e792-… | Hornetsecurity vorgeschaltet |
+| 3 | hm@durchgeplant.de | Einzelperson | Einzelfirma | Microsoft 365 | ad2158ae-… | direkt |
+| 4 | hm@burk-keller.de | Maklerbüro | GmbH | Microsoft 365 | 592d3aa8-… | direkt |
 
-- **~50 Mails/Werktag** über alle 4 (C1); **~70 % brauchen eine Handlung** (C2) — ungewöhnlich hoher Nutzanteil, wenig klassisches Rauschen.
-- Lesegeräte (A4): **Outlook auf dem PC** + **teilweise iPhone** („schaut über Apple zentral — nur wenn etwas ankommt oder vor Terminen").
-- Frequenz (C3): zu festen Zeiten, **1–15× pro Tag**, schwankend.
-- **Durchgerutscht in 6 Monaten (C4) — die Baseline:**
-  1. Kaufinteresse eines Kunden an einem Objekt **nicht bemerkt** (entgangenes Geschäft!)
+- **4 getrennte Tenants** (bestätigt: „alles einzeln") → 4 separate App-Registrierungen für den Agenten nötig.
+- **Alle 4 = eigene Postfächer** mit eigenem Login. Keine Aliasse, keine Shared Mailboxes.
+- **Admin-Zugriff: Kira selbst bei allen 4** → Graph-API-Einrichtung ohne Dritte möglich.
+- Lesegeräte: Outlook PC (primär), iPhone teilweise (zentrale Ansicht, nur bei Eingang / vor Terminen).
+- Antwortverhalten heute: immer von der korrekten Firmenadresse. **Kein** Ist-Problem mit Absender-Vermischung.
+
+## 2. Volumen & Baseline
+
+- **~50 Mails/Werktag** gesamt; **~70 % handlungsrelevant** (sehr hoher Nutzanteil, wenig klassisches Rauschen).
+- Postfach-Checks: zu festen Zeiten, 1–15×/Tag, schwankend.
+- **Durchgerutscht in 6 Monaten (= Baseline für Phase 4):**
+  1. Kaufinteresse eines Kunden an Objekt nicht bemerkt → entgangenes Geschäft
   2. Kundennachfrage unbeantwortet
-  3. **Rechnungen** in falschen Outlook-Ordner einsortiert → auf dem iPhone nicht angezeigt → übersehen
+  3. Rechnungen in falschem Outlook-Ordner → auf iPhone nicht sichtbar → übersehen
 
-## C. Gesichert: Was „wichtig" heißt (erste Hälfte)
+## 3. Prioritätsdefinition (Rohmaterial für das Regelwerk in Phase 3)
 
-Wichtig ist bei Kira **kunden-/umsatzgetrieben** (nicht primär fristen-getrieben wie zunächst angenommen):
+**Grundcharakter: kunden-/umsatzgetrieben.** Höchstes Risiko = verpasster Interessent/unzufriedener Kunde, nicht primär Behördenfrist.
 
-1. **Bestandskunde mit Rückfrage/Problem im Bauablauf** — Eskalationsgefahr, unzufriedener Kunde (D1)
-2. **Kaufinteressent in Verhandlung** („Was kostet?", „Wir möchten Vertrag machen") — braucht **schnelle Antwort**, sonst entgeht das Geschäft (D1)
-3. **Behörden: immer wichtig** (D3)
-4. **Kunden mit Fragen / Problem / Vertragsabschluss: immer wichtig** (D3)
+| Priorität | Definition |
+|---|---|
+| **Prio 1** | Kunden & Geschäftspartner — insbesondere: Bestandskunde mit Rückfrage/Problem im Bauablauf (Eskalationsgefahr) · Kaufinteressent in Verhandlung („Was kostet?", „wollen Vertrag machen") → braucht schnelle Antwort |
+| **Prio 2** | Behörden, Finanzen, Rechtliches |
+| **Unwichtig** | Werbung · Info-/CC-Mails — **aber: nicht verwerfen, sondern komprimiert zusammenfassen** (Recall-Schutz: falls doch etwas Wichtiges dabei ist) |
 
-→ Konsequenz für Phase 3: Priorisierung muss **Absenderklasse Kunde/Interessent erkennen** (Kontaktkontext!), nicht nur Fristen/Signalwörter.
+- **Signalwörter „sofort ansehen": alle** aus dem Katalog (Frist/Termin, Mahnung, Mangel/Schaden/Havarie, Nachtrag/Mehrkosten, Kündigung/Rücktritt/Anwalt, Abnahme/Übergabe).
+- **Wiederkehrende Pflicht-Mails:** Rechnungen (monatlich/quartalsweise), BWA-Auswertungen (Monats-/Quartalsende) — Ausbleiben oder Übersehen ist ein Fehler.
+- Konsequenz: Der Agent braucht **Kontaktkontext** (wer ist Kunde/Interessent, welche Firma, welches Projekt) — Absenderrolle schlägt Inhalt.
 
-## D. OFFEN — blockiert den Abschluss von Phase 0
+## 4. Datenschutz
 
-| # | Frage | Status |
-|---|---|---|
-| **E1** | Datenabfluss: lokal / EU-Cloud+AVV / US+AVV | **KRITISCH — blockiert Architektur (Phase 2)** |
-| **D2** | 5 Beispiele unwichtiger Mails | **KRITISCH — ohne Negativbeispiele kein Regelwerk** |
-| **E2** | Rechtsformen der 4 Firmen | wichtig (AVV-Konstrukt) |
-| D4/D5 | Signalwörter, typische Fristen | Vorschlag wird vorgelegt |
-| E3/E4 | Datenschutzberater, Tabu-Inhalte | offen |
-| F1–F4 | Briefing-Kanal/-Zeit, Todo-Ziel, Kalender | Vorschlag wird vorgelegt |
-| G1–G3 | Ton je Firma, Signaturen, Niemals-Entwurf-Typen | Vorschlag wird vorgelegt |
-| H1–H5 | 100 Test-Mails, Pilot-Postfach, Budget, Feedback-Zeit, Umsetzer | offen |
-| A5 | Domain-Registrar | unkritisch, keine Eile |
+- **E1 (Datenabfluss): noch NICHT entschieden.** Kira will zuerst eine Risiko-Gegenüberstellung (lokal vs. EU-Cloud+AVV vs. US+AVV) → **Pflichtbestandteil von Phase 2 (03-optionen.md)**. Architektur bis dahin so auslegen, dass alle drei Wege möglich bleiben (austauschbares Modell-Backend).
+- Rechtsstruktur: 3× GmbH + 1× Einzelfirma = **4 Verantwortliche** → bei gemeinsamem System: AVV je Einheit bzw. Vereinbarung nach Art. 26 DSGVO (Standardformular). Mildernd: nur eine Person liest.
+- Kein Datenschutzbeauftragter vorhanden (bei der Größe keine Pflicht).
+- Keine Tabu-Inhalte: alles in den 4 Postfächern darf von der KI gelesen werden.
+
+## 5. Ausgabe & Arbeitsweise (Soll)
+
+- **Briefing:** 1×/Tag um **7:30 Uhr** als E-Mail an Kira selbst, **+ Excel-Anhang** (Übersicht/Liste). Zusätzlich **Sofort-Alarm** bei erkannten Fristen/Notfällen.
+- **Todos:** kein bestehendes System, keine Präferenz („was am besten ist") → Empfehlung folgt in Phase 3 (Kandidat: Microsoft To Do — in M365 enthalten, synct aufs iPhone, keine neue Insel).
+- **Kalender:** Outlook-Kalender vorhanden → Terminabgleich für spätere Entwurfsstufe möglich.
+- **Anhänge/Fotos (Zusatzwunsch):** Fotos/Dateien aus Mails automatisch sortieren — **nur für das Pilot-Postfach durchgeplant.de**. Wird als eigene Ausbaustufe in die Roadmap (06) aufgenommen, nicht Teil des ersten Piloten.
+
+## 6. Entwürfe (spätere Stufe)
+
+- Ton: **kundenabhängig**, nicht firmenabhängig → Kontaktkontext muss Anredeform/Ton je Kontakt speichern.
+- Signaturen: alle 4 vorhanden und gepflegt.
+- **Niemals von der KI entwerfen:** alles mit Preisen / Angeboten / Nachträgen. (Weitere Tabu-Typen in Phase 3 vorschlagen — Kira hat nur diesen einen markiert; rechtswirksame Mails und Terminzusagen zur Bestätigung erneut vorlegen.)
+
+## 7. Pilot & Rahmen
+
+| Punkt | Entscheidung |
+|---|---|
+| **Pilot-Postfach** | **hm@durchgeplant.de** (Einzelfirma, direkter M365-Zugang, überschaubares Risiko) |
+| Eval-Daten | ~100 alte Mails verfügbar, Labeling durch Kira ok (H1) |
+| Budget | offen nach oben — „egal, wenn es nachweislich Zeit spart und nichts mehr durchrutscht" (H3) |
+| Feedback | ~10 Min/Tag in den ersten 4 Wochen (H4) |
+| Umsetzung | Kira selbst mit Anleitung (H5) — Anleitungen müssen non-technical formuliert sein |
+
+## 8. Offene Punkte (nicht blockierend)
+
+- A5 Domain-Registrar (unkritisch, bei Bedarf in der Umsetzung klären)
+- E1-Entscheidung fällt nach Risikovergleich in Phase 2
+
+---
+
+**→ Nächster Schritt: Phase 1 — „Ordnung vor Intelligenz": Was lösen Microsoft-Bordmittel nativ, was bleibt als echtes Problem für einen Agenten übrig? (Ergebnis: 02-nativ-vs-rest.md)**
