@@ -44,7 +44,7 @@ Verantwortliche Nutzerin: Kira Moewes — einzige Leserin/Beantworterin aller 4 
 
 ## 4. Datenschutz
 
-- **E1 (Datenabfluss): noch NICHT entschieden.** Kira will zuerst eine Risiko-Gegenüberstellung (lokal vs. EU-Cloud+AVV vs. US+AVV) → **Pflichtbestandteil von Phase 2 (03-optionen.md)**. Architektur bis dahin so auslegen, dass alle drei Wege möglich bleiben (austauschbares Modell-Backend).
+- **E1 ENTSCHIEDEN (16.07.2026, nach Risikovergleich in 03-optionen): EU-Cloud mit AVV.** Kiras Formulierung „EU Claude“ → bevorzugter Kandidat: Claude mit EU-Datenresidenz (über EU-Rechenzentren), Alternativen: Azure OpenAI EU, Mistral. Modell-Backend bleibt austauschbar. Pilot freigegeben; Ausbaustufe Entwürfe grundsätzlich vorgesehen (separate Freigabe folgt).
 - Rechtsstruktur: 3× GmbH + 1× Einzelfirma = **4 Verantwortliche** → bei gemeinsamem System: AVV je Einheit bzw. Vereinbarung nach Art. 26 DSGVO (Standardformular). Mildernd: nur eine Person liest.
 - Kein Datenschutzbeauftragter vorhanden (bei der Größe keine Pflicht).
 - Keine Tabu-Inhalte: alles in den 4 Postfächern darf von der KI gelesen werden.
