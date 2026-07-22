@@ -1,59 +1,42 @@
-# 07-kira.md — Profil & Ziele (Stand 22.07.2026)
+# 07-kira.md — Profil & Ziele (Stand 22.07.2026, korrigiert)
 
-Zweck: Gedächtnis-Datei. Jede künftige Session kennt damit Kiras Persönlichkeit, Ziele und Plan.
+Zweck: Gedächtnis-Datei. Jede künftige Session kennt damit Kiras Situation, Ziele und Plan.
 
 ---
 
-## 1. Persönlichkeit
+## 1. Wer Kira ist (Fakten)
 
-**Testergebnis (16personalities):** ENTJ-T „Kommandeurin"
+- Macht gerade **Abitur**.
+- **15.000 € im Depot** — spart und investiert bereits selbst.
+- Die 4 Firmen (Bau/Immobilien) aus diesem Projekt sind **ihr Kunde**, nicht ihre Firmen.
+- Kira baut als externe Dienstleisterin das KI-E-Mail-System für diesen Kunden — mit Claude als Werkzeug.
+- Non-technical, lernt schnell, arbeitet strukturiert (Phasen, Abnahmen, Doku).
 
-| Achse | Wert |
-|---|---|
-| Energie | 65 % Extravertiert |
-| Verstand | 74 % Intuitiv (stärkster Wert) |
-| Wesensart | 58 % Rational — **knapp, fast Mitte** |
-| Taktiken | 65 % Strukturiert |
-| Identität | 51 % Turbulent |
+## 2. Persönlichkeit
 
-**Einordnung (gemeinsam erarbeitet):**
-
-- Grenzfall **ENTJ ⇄ ENFJ**. Selbstbild: eher F (Gefühl).
+- 16personalities: **ENTJ-T** („Kommandeurin") — Grenzfall zu **ENFJ** (nur 58 % Rational).
+- Kurzform: **Anführerin mit Herz.** Außen klar und direkt, innen warm.
 - Fremdbild: mehrfach „netteste Person, die ich kenne".
-- Kurzform: **Anführerin mit Herz** — außen klar und direkt, innen warm.
-- Kira hinterfragt Tests selbst (Barnum-Effekt recherchiert) → kritischer Kopf.
+- Stärken: Klarheit · Eigeninitiative · Struktur · kritisches Denken (hinterfragt sogar Tests).
+- Wunde Punkte: zu streng mit sich · trägt viel allein · wenig Ruhe.
 
-**Stärken:** Klarheit · echte Wärme · Eigeninitiative · Struktur · feines Gespür · Selbstehrlichkeit
+## 3. Ziele
 
-**Wunde Punkte:** zu streng mit sich · trägt zu viel allein · gönnt sich wenig Ruhe · Direktheit kann treffen
-
----
-
-## 2. Ziele
-
-- **Businessfrau in Führungsposition.** Verhandlungen führen. Hohes Einkommen.
+- **Businessfrau in Führungsposition.** Verhandlungen führen. Maximal verdienen und erreichen.
+- Leitsatz: **Besitz statt Gehalt. Skalierung statt Stunden. Zinseszins statt Sprint.**
 - Langfristig: **eigenes Unternehmen** — KI als Hebel.
-- Empfehlung Studium: **BWL** (Schwerpunkt Führung/Finance). Alternativen: Wirtschaftsrecht, Wirtschaftspsychologie.
+- Studienrichtung nach dem Abi (empfohlen): **BWL** (Führung/Finance). Alternativen: Wirtschaftsrecht, Wirtschaftspsychologie.
+
+## 4. Der Plan (korrigiert: sie ist schon auf Stufe 3!)
+
+| Stufe | Inhalt |
+|---|---|
+| 1 · Beweis | Kundenprojekt (E-Mail-Triage) sauber liefern, Ergebnisse messen → **Referenz Nr. 1** |
+| 2 · Wiederholen | Mit der Referenz weitere Kunden in Bau/Immobilien gewinnen (Branche = digital rückständig, zahlungskräftig) |
+| 3 · Skalieren | Aus Einzelprojekten ein Angebot/Produkt machen · Depot weiter besparen (Zinseszins läuft seit dem Abi) |
+
+**Kernerkenntnis:** Kira ist keine Schülerin, die später mal gründen will — sie hat **schon jetzt einen zahlenden Anwendungsfall** und macht faktisch KI-Beratung. Abi + Studium sind das Fundament daneben, nicht die Voraussetzung.
 
 ---
 
-## 3. Ausgangslage (aus 01-kontext)
-
-- Zentrale Person hinter 4 Firmen (Bau/Immobilien), Admin aller 4 M365-Tenants.
-- Führt bereits ein KI-Einführungsprojekt nach Lehrbuch durch (Dateien 00–06).
-
----
-
-## 4. Unternehmerinnen-Plan (3 Stufen)
-
-| Stufe | Zeitraum | Inhalt |
-|---|---|---|
-| **1 · Beweis** | jetzt – Tag 90 | E-Mail-Projekt durchziehen. Ergebnisse messen: Zeitersparnis, Durchrutscher, Wert verpasster Interessenten → Fallstudie Nr. 1 |
-| **2 · Skalieren** | Monat 3–12 | Weitere Prozesse der eigenen Firmen mit KI: Rechnungs-/BWA-Prüfung, Foto-Sortierung, Angebots-Nachverfolgung |
-| **3 · Beratung** | ab Jahr 1 | Bau-/Immobilienfirmen beraten — eigene Fallstudie als Beweis, Branchensprache als Vorteil |
-
-**Merksatz:** Der schnellste Weg läuft nicht über den Hörsaal — sondern über das, was schon läuft: zu Ende bauen, messen, verkaufen.
-
----
-
-**→ Nächster Meilenstein (aus 06-roadmap): der 100-Mail-Test.**
+**→ Nächster Meilenstein (aus 06-roadmap): der 100-Mail-Test beim Kunden.**
