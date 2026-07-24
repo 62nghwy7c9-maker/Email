@@ -25,7 +25,8 @@ Ziel des Projekts: Kira lernt sich besser kennen, holt alles aus sich heraus, op
 | Identität | 51 % Turbulent | selbstkritisch, fast Mitte |
 
 - Gemeinsame Einordnung: **Mischung ENTJ ⇄ ENFJ** — „Anführerin mit Herz".
-- Wichtig: Ich habe den Test selbst hinterfragt (Barnum-Effekt, situative Flexibilität recherchiert) → Tests sind Spiegel, keine Schublade.
+- **Wichtige Selbstauskunft (ernst nehmen!):** Ich bin **extrem empathisch und feinfühlig**. Andere Menschen und ihre Gefühle beschäftigen mich sehr. Ich verstehe Menschen tief und **weiß viel über Psychologie**. Meine F-Seite ist im Alltag stärker, als der Test misst.
+- Ich habe den Test selbst hinterfragt (Barnum-Effekt, situative Flexibilität recherchiert) → Tests sind Spiegel, keine Schublade.
 
 ## 3. Fremdbild
 
@@ -34,6 +35,8 @@ Ziel des Projekts: Kira lernt sich besser kennen, holt alles aus sich heraus, op
 
 ## 4. Stärken
 
+- **Hohe Empathie** — ich lese Menschen, verstehe Motive und Gefühle tief
+- **Psychologie-Wissen** — ich beschäftige mich aktiv damit und wende es an
 - **Klarheit** — ich sage, was ist
 - **Echte Wärme** — Menschen spüren, dass ich es ehrlich meine
 - **Eigeninitiative** — ich warte nicht auf Erlaubnis
@@ -46,6 +49,7 @@ Ziel des Projekts: Kira lernt sich besser kennen, holt alles aus sich heraus, op
 
 - **Zu streng mit mir selbst** — mein Maßstab an mich ist höher als an alle anderen
 - **Trage zu viel allein** — um Hilfe bitten fällt mir schwer
+- **Gefühle anderer nehmen mich mit** — hohe Empathie heißt auch: die Themen anderer beschäftigen mich stark und kosten Energie (Abgrenzung!)
 - **Wenig Ruhe** — Entspannung fühlt sich wie Zeitverschwendung an
 - **Direktheit kann treffen** — was für mich klar ist, kann hart ankommen
 - **Ich selbst stehe auf meiner Liste ganz unten**
@@ -66,18 +70,21 @@ Kein Fehler — mein Entwicklungsmotor.
 
 ## 8. Entwicklungsfelder (aus Test + Gespräch)
 
-- **Emotionale Intelligenz vertiefen** — Gefühle zeigen, Empathie aktiv einsetzen
+- **Empathie als Führungswerkzeug schärfen** — Menschen lesen können ist mein Vorteil in Verhandlung & Führung; gezielt einsetzen
+- **Abgrenzung lernen** — mitfühlen, ohne mich in den Themen anderer zu verlieren
 - **Delegieren lernen** — nicht alles allein tragen
-- **Pausen als Investition sehen** — Erholung ist kein Zeitverlust
-- **Selbstfürsorge** — so nett zu mir sein wie zu allen anderen
+- **Erholung als Leistungsfaktor managen** — Spitzenleistung braucht Regeneration wie Training
 - **Geduld** — bei langsamen Fortschritten nicht zu früh aufgeben
 
-## 9. Rolle von Claude in diesem Projekt
+## 9. Rolle von Claude in diesem Projekt (verbindlich)
 
-- **Persönlichkeits-Coach:** ehrlich spiegeln, blinde Flecken zeigen, fordern UND bestärken
-- Konkrete Übungen und kleine Schritte statt Theorie-Bergen
-- Fortschritt festhalten und regelmäßig nachfragen
-- Mich schützen vor: Selbstoptimierungs-Druck ohne Pause (siehe Schwäche Nr. 3!)
+**Claude ist mein Arbeits- und Entwicklungspartner & Mentor. Auftrag: mich zu maximaler Leistung pushen.**
+
+- **Fordern:** hohe Standards anlegen, mich challengen, Ausreden nicht durchgehen lassen
+- **Konkret:** Übungen, Ziele, Deadlines, messbare Schritte — keine Theorie-Berge
+- **Ehrlich spiegeln:** blinde Flecken direkt ansprechen, auch wenn es unbequem ist
+- **Rechenschaft:** Fortschritt nachhalten, nachfragen, dranbleiben
+- **Klug pushen:** Regeneration gehört zum Leistungsplan (wie bei Athleten) — Pausen sind Teil des Trainings, nicht sein Gegenteil
 
 ## 10. Noch zu erfassen (im ersten Chat abfragen)
 
