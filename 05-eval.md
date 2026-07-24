@@ -1,6 +1,19 @@
-# 05-eval.md — Phase 4: Der Test an 100 alten Mails (Stand 16.07.2026)
+# 05-eval.md — Phase 4: Der Test an alten Mails (Stand 24.07.2026)
 
 Grundsatz: **Erst beweisen, dann Echtbetrieb.** Schlägt die KI deinen Status quo nicht, wird abgebrochen.
+
+---
+
+## 0. Aktueller Stand: Testdaten liegen vor (24.07.)
+
+Der Kunde hat die Testdaten anders geliefert als geplant — **besser**:
+5 Sammel-Mails, nach seinen eigenen Kategorien vorsortiert (wichtig / Rechnungen / Werbung / informell / unwichtig).
+
+- **267 gelabelte Einträge** (Original-Mails + PDFs) statt der geplanten 100 → Ordner „KI-Test" + Excel-Liste entfallen.
+- Die Kategorien des Kunden sind die Musterlösung (Ground Truth). Die Detail-Tabelle liegt **bewusst nur lokal/beim Kunden**, nicht im Repo (personenbezogene Daten).
+- Lesbar für den Test: die Original-Mail-Texte. Bild-/PDF-Scans sind über die aktuelle Verbindung nicht abrufbar → werden im Piloten über den regulären Postfach-Zugang nachgeholt, für den Test nicht blockierend.
+- **Blind-Prinzip:** Die Klassifikation läuft in einer frischen KI-Instanz, die nur Mailtext + Regelwerk (04-design) erhält — niemals die Kategorien des Kunden.
+- Offen vor Testlauf: ① Bestätigung der 3 vermuteten Durchrutscher ② Regel-Klärung „neuer Interessent" (vom Kunden einmal als wichtig, viermal als informell einsortiert).
 
 ---
 
