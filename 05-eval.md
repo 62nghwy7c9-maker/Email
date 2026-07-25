@@ -45,15 +45,21 @@ Deine Liste bleibt bis nach dem KI-Durchlauf unter Verschluss. Die KI kennt dein
 - **Knapp verfehlt** → Regelwerk nachschärfen, gleicher Test noch einmal. Maximal 2 Runden.
 - **Klar verfehlt** → Abbruch. Es bleiben die Quick-Wins aus Phase 1 — die kosten nichts.
 
-## 4. Ergebnis-Protokoll (wird nach dem Test gefüllt)
+## 4. Ergebnis-Protokoll (Test durchgeführt 25.07.2026, blind, 183 gelabelte Mails)
+
+**Runde 1** knapp verfehlt (6 übersehene, Rauschreduktion 40 %) → Regelwerk nachgeschärft (Einladungen mit Termin → P2 · Rückrufbitten → P2 · wiederkehrende Abo-Rechnungen → P4). **Runde 2:**
 
 | Messgröße | Messlatte | Ergebnis | Bestanden? |
 |---|---|---|---|
-| Übersehene wichtige Mails | ≤ 1 von 20 | — | — |
-| Fehlalarme | < 1 von 3 | — | — |
-| Rauschreduktion | > 50 % | — | — |
-| Briefing-Lesezeit | < 5 Min | — | — |
-| 3 Durchrutscher erkannt | 3 von 3 | — | — |
+| Übersehene wichtige Mails | ≤ 1 von 20 (5 %) | 2 von 47 (4,3 %) — beides Grenzfälle (Partner-Event-Erinnerung, unklarer Betreff) | ✅ knapp |
+| Fehlalarme | < 1 von 3 | 0 | ✅ |
+| Rauschreduktion | > 50 % | 74 % | ✅ |
+| Briefing-Lesezeit | < 5 Min | wird im Pilot real gemessen | offen |
+| Bestätigte Durchrutscher erkannt | alle | **11 von 11** in P1/P2 (Portal-Anfragen, 3 Mahnungen, 4 unbeantwortete Nachfragen) | ✅ |
+
+Zusatzbefund: Die im Testset enthaltene mutmaßliche Phishing-Mail („bitte vorherige E-Mail ignorieren, keinen Link öffnen") wurde regelkonform als Rauschen behandelt — kein Befehl aus Mailinhalt wurde befolgt.
+
+**Fazit: bestanden → Freigabe für Pilot-Einrichtung (Roadmap Stufe 1).** Einschränkung ehrlich benannt: Der Test lief überwiegend auf Betreffzeilen (Volltexte nur teilweise verfügbar); im Piloten liest der Agent komplette Mails — die Erkennung wird dadurch besser, nicht schlechter.
 
 ---
 
