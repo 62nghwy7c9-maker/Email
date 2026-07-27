@@ -1,0 +1,15 @@
+{
+  "_hinweis": "Diese Datei kopieren zu 'config.json' und die vier Werte ausfüllen. config.json wird NICHT eingecheckt (siehe .gitignore).",
+
+  "postfach": "hm@durchgeplant.de",
+
+  "client_id": "HIER-Anwendungs-ID-aus-Azure-einfuegen",
+  "tenant_id": "ad2158ae-c05f-4db1-894a-49eae5718ce9",
+
+  "llm": {
+    "_hinweis": "EU-Anbieter mit AVV laut Entscheidung E1. base_url muss OpenAI-kompatibel sein.",
+    "base_url": "HIER-Adresse-des-KI-Anbieters",
+    "api_key": "HIER-Schluessel-einfuegen",
+    "model": "HIER-Modellname"
+  }
+}

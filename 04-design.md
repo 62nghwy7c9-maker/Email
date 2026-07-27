@@ -19,6 +19,8 @@ Regel vor Gefühl. Reihenfolge der Prüfung: **Absenderrolle → Frist/Geld → 
 | **P5 — Rauschen** | Werbung · Newsletter | — | 3-Zeilen-Sammelblock, nie gelöscht |
 
 **Feste Zusatzregeln:**
+- **Neue Interessenten-Anfrage → immer P1, ohne Ausnahme** (vom Kunden am 24.07. bestätigt: „immer wichtig"). 
+- **Aus Testrunde 2:** Einladungen mit Termin an den Inhaber → P2 · Rückrufbitten → P2 · wiederkehrende Abo-/Dauerrechnungen bekannter Anbieter → P4.
 - Unbekannter Absender + Objekt-/Projektfrage → wie Interessent behandeln (P1).
 - Unsicherheit → **eine Stufe höher.** Precision wird geopfert, Recall geschützt.
 - Rechnung/BWA zum Monats-/Quartalsende **ausgeblieben** → eigener Hinweis im Briefing.

@@ -1,0 +1,10 @@
+# Zugangsdaten und Laufzeitdateien NIEMALS einchecken
+pilot/config.json
+pilot/token-cache.json
+pilot/state.json
+pilot/briefing-anhang.xlsx
+__pycache__/
+*.pyc
+
+# Testdaten mit echten Namen bleiben lokal
+eval-ground-truth.csv
