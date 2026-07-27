@@ -18,6 +18,33 @@ Projekt: KI-gestützte E-Mail-Triage für Kira Moewes (nicht-technisch) und ihre
 
 Ein lauffähiger Prototyp liegt in `pilot/triage.py`. Er ist **noch nie gegen ein echtes Postfach gelaufen**.
 
+## Zuerst: Codex einrichten (einmalig)
+
+Kira möchte, dass jede Arbeit **automatisch** von zwei Systemen geprüft wird, ohne dass sie
+darum bitten muss. Richte deshalb als Erstes ein:
+
+1. `npm install -g @openai/codex`
+2. `codex login` — Kira meldet sich im Browser mit ihrem ChatGPT-Konto an
+   (das **kostenlose** Konto genügt für lokale Prüfungen).
+3. Danach gilt die Regel aus `CLAUDE.md`: nach jeder Code-Änderung und vor jeder Auslieferung
+   selbst prüfen **plus** `codex review --uncommitted` als zweite Meinung — unaufgefordert.
+
+## Bereits gefundene Fehler — bitte zuerst beheben
+
+Eine erste Prüfung (nur Claude, ohne Codex) hat zwei Punkte ergeben, die vor dem ersten
+echten Lauf behoben sein müssen. Bitte von beiden Systemen gegenprüfen lassen:
+
+1. **Erster Lauf holt das ganze Postfach.** `pilot/triage.py` Zeile 86: ohne `state.json`
+   wird als Startdatum 1970 gesetzt → jede jemals empfangene Mail ginge an die KI.
+   Vorschlag: beim ersten Lauf auf die letzten 7 Tage begrenzen.
+2. **Fremder Text landet ungefiltert im Briefing.** `pilot/triage.py` Zeile 168–172:
+   Absendername und KI-Text werden ohne Maskierung in HTML eingesetzt — ein präparierter
+   Absendername könnte im Briefing einen falschen Link platzieren. Vorschlag: `html.escape()`.
+
+Weitere Punkte aus derselben Prüfung (weniger dringend): kein Umgang mit Microsofts
+Ratenbegrenzung (429), Outlook-Kategorien müssen einmalig angelegt werden, damit sie farbig
+erscheinen, und der Mailtext sollte als reiner Text statt als HTML abgerufen werden.
+
 ## Deine Aufgabe
 
 Den Piloten auf Kiras/Papas Rechner tatsächlich zum Laufen bringen — Postfach **hm@durchgeplant.de**.
