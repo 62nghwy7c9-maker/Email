@@ -12,7 +12,7 @@ Builds websites against a real design system pulled from
 | `references/design-md-spec.md` | The DESIGN.md format, and how to author one offline |
 | `references/imagery.md` | When to generate images, prompt recipe, image rules |
 | `references/quality-bar.md` | The checklist run before anything is called finished |
-| `scripts/refero_style.py` | Catalog search + single-style DESIGN.md fetch |
+| `scripts/refero_style.py` | Catalog search, side-by-side compare, DESIGN.md fetch |
 | `scripts/catalog.json` | The catalog data |
 
 ## Make it available everywhere
@@ -37,10 +37,9 @@ python3 scripts/refero_style.py search linear
 python3 scripts/refero_style.py get "Linear" -o ~/myproject/DESIGN.md
 ```
 
-`get` fetches one style page at a time, for the style actually chosen. It is not a
-crawler and must not be looped over the catalog — `styles.refero.design/robots.txt`
-asks AI agents not to bulk-crawl, and Refero's own MCP is the sanctioned route for
-volume access.
+`compare` shortlists candidates from their palette, fonts and radii; `get` pulls the
+winner in full. The library is published to give AI agents real design systems, so read
+as many styles as the decision needs — just don't mirror the whole catalogue.
 
 ## Optional: Refero's official plugin
 

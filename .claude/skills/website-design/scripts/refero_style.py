@@ -6,10 +6,13 @@ Usage
   refero_style.py list <category>
   refero_style.py search <query>
   refero_style.py get <style-url | style-uuid | exact-name> [-o FILE]
+  refero_style.py compare <target> <target> [<target> ...]
 
-`get` fetches ONE style page that the user (or the agent, on the user's behalf)
-has chosen and prints the DESIGN.md block the page publishes. It is a
-single-page lookup on purpose -- do not loop it over the catalog.
+`get` prints (or writes) the full DESIGN.md a style page publishes.
+`compare` fetches several styles and prints a short digest of each -- summary,
+palette, fonts, radii -- so candidates can be judged side by side before one is
+picked. The library exists to hand design systems to agents; use as many styles
+as the job genuinely needs. Just do not mirror the whole catalogue.
 """
 
 from __future__ import annotations
@@ -21,6 +24,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 import urllib.request
 
 BASE = "https://styles.refero.design"
@@ -123,6 +127,55 @@ def cmd_get(args: argparse.Namespace) -> None:
         print(md)
 
 
+def digest(md: str) -> str:
+    """Short, comparable summary of one DESIGN.md."""
+    out = []
+    head = re.search(r"^#\s+(.+?)$", md, re.M)
+    out.append(head.group(1).strip() if head else "(unnamed)")
+    tag = re.search(r"^>\s*(.+?)$", md, re.M)
+    if tag:
+        out.append(f"  vibe:    {tag.group(1).strip()}")
+    theme = re.search(r"\*\*Theme:\*\*\s*(\w+)", md)
+    if theme:
+        out.append(f"  theme:   {theme.group(1)}")
+
+    body = re.split(r"\n##\s", md, 1)[0]
+    para = [ln.strip() for ln in body.splitlines() if len(ln.strip()) > 80]
+    if para:
+        text = para[-1]
+        out.append(f"  summary: {text[:300]}{'...' if len(text) > 300 else ''}")
+
+    colors = re.findall(r"\|\s*([^|]+?)\s*\|\s*`(#[0-9a-fA-F]{3,8})`", md)
+    if colors:
+        out.append("  palette: " + ", ".join(f"{n} {v}" for n, v in colors[:8]))
+
+    fonts = re.findall(r"`--font-([a-z0-9-]+)`", md)
+    if fonts:
+        out.append("  fonts:   " + ", ".join(dict.fromkeys(fonts)))
+
+    radii = re.findall(r"^\s*--radius-([a-z0-9-]+):\s*([^;]+);", md, re.M)
+    if radii:
+        uniq = dict.fromkeys(f"{n} {v.strip()}" for n, v in radii)
+        out.append("  radii:   " + ", ".join(uniq))
+
+    donts = re.findall(r"^-\s*(Do not .+?)$", md, re.M)
+    if donts:
+        out.append(f"  hard no: {donts[0][:160]}")
+    return "\n".join(out)
+
+
+def cmd_compare(args: argparse.Namespace) -> None:
+    if len(args.targets) < 2:
+        sys.exit("compare needs at least two styles -- use `get` for a single one.")
+    for i, target in enumerate(args.targets):
+        if i:
+            time.sleep(0.5)  # be a considerate guest
+            print()
+        name, url = resolve(target)
+        print(digest(extract_design_md(fetch(url))))
+        print(f"  source:  {url}")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = parser.add_subparsers(dest="cmd", required=True)
@@ -141,6 +194,10 @@ def main() -> None:
     p_get.add_argument("target", help="style URL, uuid, or exact catalog name")
     p_get.add_argument("-o", "--out", help="write the DESIGN.md here instead of stdout")
     p_get.set_defaults(func=cmd_get)
+
+    p_cmp = sub.add_parser("compare")
+    p_cmp.add_argument("targets", nargs="+", help="two or more style URLs, uuids, or names")
+    p_cmp.set_defaults(func=cmd_compare)
 
     args = parser.parse_args()
     args.func(args)

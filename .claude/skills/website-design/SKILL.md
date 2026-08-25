@@ -54,25 +54,33 @@ Categories: `clean-saas`, `editorial-websites`, `dark-mode-websites`, `fintech-w
 `agency-websites`, `productivity-apps`. Full list with links:
 [references/refero-styles.md](references/refero-styles.md).
 
-Offer the user **three** candidates by name with one line each on why, and a default
-recommendation. Then fetch the chosen one into the project:
+Then look at three or four candidates properly rather than guessing from the name —
+`compare` fetches each one and prints its vibe line, palette, fonts, radii and first
+hard rule:
+
+```bash
+python3 scripts/refero_style.py compare "Stripe" "Linear" "Mercury"
+```
+
+Present those candidates to the user with one line each on why, and a recommendation.
+Then pull the chosen system into the project in full:
 
 ```bash
 python3 scripts/refero_style.py get "Stripe" -o <project>/DESIGN.md
 ```
+
+This library exists to hand design systems to agents — that is its stated purpose.
+Read as many styles as the job genuinely needs, and read them *before* deciding rather
+than after. The only thing to avoid is mirroring the whole catalogue for its own sake.
 
 Four ways to obtain the system, in order of preference:
 
 | Route | When | How |
 |---|---|---|
 | Refero MCP | `refero`/`mcp__refero__*` tools are connected | Use them — they search 150k+ real screens and flows, not just styles |
-| Bundled script | Default | `refero_style.py get …` — one page, for the style actually chosen |
+| Bundled script | Default | `refero_style.py compare …` to shortlist, then `get …` for the winner |
 | User paste | Script blocked, or the user already has a favourite | Ask them to open the style page and press **Copy .md**, then paste it in |
 | Author one | Fully offline, or a brand with its own guidelines | Write a DESIGN.md by hand in the same shape — see [references/design-md-spec.md](references/design-md-spec.md) |
-
-Fetch only the one style that was chosen. Do not loop the script over the catalog:
-`styles.refero.design/robots.txt` asks AI crawlers not to bulk-crawl the site, and the
-Refero MCP is the sanctioned high-volume route. A single user-directed lookup is fine.
 
 **Never mix two style systems in one site.** If the user likes the type of one and the
 color of another, say so explicitly and record the graft as a deviation in `DESIGN.md`.
@@ -128,8 +136,9 @@ them. Follow it.
 When the page does need photography or illustration, **generate it** rather than
 hotlinking stock URLs, which rot and often are not licensed:
 
-- Higgsfield MCP available → `mcp__Higgsfield__generate_image` (or `_batch` for several),
-  then download into `assets/` and reference locally.
+- An image-generation MCP is connected (Higgsfield: any tool ending in
+  `generate_image`, or `generate_image_batch` for several) → generate, then download
+  into `assets/` and reference locally. Server prefixes change; match on the tool name.
 - Not available → build the visual from CSS/SVG in the system's own language, or leave a
   clearly-labelled placeholder box with the exact prompt in a comment. Say which you did.
 

@@ -18,11 +18,13 @@ careful build look cheap.
 
 Use the Higgsfield MCP when it is connected:
 
-- `mcp__Higgsfield__generate_image` — one image (`count: 2-4` for variants of the *same*
-  prompt)
-- `mcp__Higgsfield__generate_image_batch` + `jobs_wait` — several different images
-- `mcp__Higgsfield__models_explore` with `action: 'recommend'` when unsure which model
-  fits; it also lists the valid `aspect_ratio` values per model
+(The server prefix changes between sessions — match tools by the name after the last
+`__`, not by the full string.)
+
+- `generate_image` — one image (`count: 2-4` for variants of the *same* prompt)
+- `generate_image_batch` + `jobs_wait` — several different images
+- `models_explore` with `action: 'recommend'` when unsure which model fits; it also
+  lists the valid `aspect_ratio` values per model
 - rough starting points: photoreal people/editorial → `soul_2`; product and commercial
   shots → `marketing_studio_image`; anything with legible text, diagrams, or 4K needs →
   `nano_banana_pro`
