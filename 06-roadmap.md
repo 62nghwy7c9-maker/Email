@@ -4,6 +4,11 @@ Grundregel: **Jede Stufe schaltet die nächste erst frei, wenn ihr Vertrauensnac
 
 ---
 
+> **Hinweis 26.08.2026:** Diese Roadmap ging von einem Betrieb auf Papas PC und nur der Triage aus.
+> Beides ist überholt — Kira will Dauerbetrieb und vier weitere Automatisierungen.
+> **Gültig ist jetzt `07-automatisierung.md`.** Die Stufen unten bleiben als Vertrauensprinzip gültig:
+> jede Stufe schaltet die nächste erst nach erbrachtem Nachweis frei.
+
 ## Die Stufen
 
 | Stufe | Zeitraum | Was passiert | Vertrauensnachweis → schaltet frei |

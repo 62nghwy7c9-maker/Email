@@ -46,6 +46,22 @@ Outlook angelegt werden, sonst erscheinen sie ohne Farbe. Bitte mit der Nutzerin
 
 **Nie gegen ein echtes Postfach gelaufen** — der erste echte Testlauf steht noch aus.
 
+## WICHTIG — Kurswechsel vom 26.08.2026
+
+Kira hat zwei neue Vorgaben gemacht, die den Auftrag unten verändern:
+**Es muss immer laufen, unabhängig von jedem Rechner**, und **es sollen vier weitere
+Automatisierungen dazukommen**. Entscheidung: **n8n Cloud** (Frankfurt, AVV, deutscher Anbieter).
+
+**Maßgeblich ist jetzt `07-automatisierung.md`.** Dort stehen die fünf Automatisierungen,
+ihre Reihenfolge und die Sicherheitsregeln.
+
+Konsequenz für den Piloten: `pilot/triage.py` ist **nicht mehr der Motor, sondern die Vorlage**.
+Das Regelwerk P1–P5, der Briefing-Aufbau und die Guardrails werden nach n8n übertragen —
+der Python-Code dient als Referenz und bleibt als lauffähiger Rückfallweg erhalten.
+
+Der Abschnitt „Deine Aufgabe" unten gilt weiterhin **inhaltlich** (was der Agent können muss),
+nur der Ort der Ausführung ist jetzt n8n statt Papas PC.
+
 ## Deine Aufgabe
 
 Den Piloten auf Kiras/Papas Rechner tatsächlich zum Laufen bringen — Postfach **hm@durchgeplant.de**.
