@@ -20,15 +20,27 @@ Und: **es soll mehr automatisiert werden als nur die E-Mail-Triage.**
 auch n8n. Das ist eine bewusste Abwägung zugunsten von Verfügbarkeit und Ausbaufähigkeit,
 abgemildert durch deutschen Anbieter, EU-Server und AVV.
 
-## 2. Was aus dem Piloten bleibt — und was neu gebaut wird
+## 2. Bauweise: kombinieren statt ausliefern (Entscheidung 26.08.)
 
-| Teil | Was damit passiert |
-|---|---|
-| **Das Regelwerk P1–P5** | **Bleibt unverändert.** Es ist das getestete Herzstück (183 Mails, bestanden) |
-| Briefing-Aufbau, Guardrails, Kontaktkontext | Bleiben — Logik wandert 1:1 in n8n |
-| Das Python-Programm | Wird **Vorlage statt Motor**: n8n übernimmt die Abläufe mit eigenen Bausteinen |
+**Grundsatz: Das Wertvolle bleibt bei Kira, das Austauschbare kommt von n8n.**
 
-Wichtig: Der Aufwand war nie die Technik, sondern das Regelwerk — und genau das wird nicht neu gebaut.
+| Teil | Wo er lebt | Warum |
+|---|---|---|
+| **Regelwerk, Briefing-Format, Tabu-Listen** | `regelwerk/regelwerk.json` — **im eigenen Projekt** | Eigentum, portierbar, jederzeit testbar |
+| Zeitsteuerung, Verbindungen, Fehleralarm, Wiederholung, Zugangsdaten | n8n | Fertig, muss niemand selbst bauen und pflegen |
+| Notfallweg `pilot/triage.py` | eigenes Projekt | Läuft auch ohne n8n — liest **dieselbe** Regelwerk-Datei |
+
+n8n **ruft** das Regelwerk auf, es **besitzt** es nicht.
+
+**Korrektur zur ersten Fassung:** Dort stand, das Python-Programm werde „nur noch Vorlage".
+Beim kombinierten Weg stimmt das nicht — sein Kern bleibt echter Bestandteil und Rückfallweg.
+
+**Warum nicht alles selbst bauen:** Nicht das Programmieren ist der Aufwand, sondern Server-Pflege,
+Sicherungen, Überwachung, Fehleralarm und Zugangsdaten-Verwaltung — sechs Dinge, die n8n mitbringt.
+Fällt der Ablauf morgens aus, meldet n8n das. Bei Eigenbau merkt es niemand.
+
+**Ausstiegsversicherung:** Die n8n-Abläufe werden regelmäßig als Datei ins Projekt gesichert.
+Bei einem Wechsel wandern Regelwerk, Abläufe und Notfallweg mit — Umzug in Tagen statt Monaten.
 
 ## 3. Die fünf Automatisierungen
 

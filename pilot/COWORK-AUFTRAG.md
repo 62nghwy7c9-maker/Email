@@ -55,9 +55,17 @@ Automatisierungen dazukommen**. Entscheidung: **n8n Cloud** (Frankfurt, AVV, deu
 **Maßgeblich ist jetzt `07-automatisierung.md`.** Dort stehen die fünf Automatisierungen,
 ihre Reihenfolge und die Sicherheitsregeln.
 
-Konsequenz für den Piloten: `pilot/triage.py` ist **nicht mehr der Motor, sondern die Vorlage**.
-Das Regelwerk P1–P5, der Briefing-Aufbau und die Guardrails werden nach n8n übertragen —
-der Python-Code dient als Referenz und bleibt als lauffähiger Rückfallweg erhalten.
+**Bauweise: kombinieren.** Das Regelwerk liegt in **`regelwerk/regelwerk.json`** und gehört Kira.
+n8n übernimmt nur Zeitsteuerung, Verbindungen, Fehleralarm und Zugangsdaten.
+
+Verbindliche Vorgaben dazu:
+- Die n8n-Abläufe **laden das Regelwerk aus `regelwerk/regelwerk.json`** — Stufen, Zusatzregeln,
+  Guardrails und Antwortformat NIE in n8n doppelt pflegen.
+- `pilot/triage.py` liest bereits dieselbe Datei und bleibt als **Notfallweg** lauffähig.
+  Nach jeder Regeländerung muss es weiterhin durchlaufen.
+- Die n8n-Abläufe regelmäßig als Datei ins Projekt exportieren (Ausstiegsversicherung).
+- Nach Umbau in n8n: **den Blindtest aus `05-eval.md` wiederholen** und mit dem alten Ergebnis
+  vergleichen (0 Fehlalarme, 74 % Rauschreduktion, 11/11 Durchrutscher). Nicht schlechter werden.
 
 Der Abschnitt „Deine Aufgabe" unten gilt weiterhin **inhaltlich** (was der Agent können muss),
 nur der Ort der Ausführung ist jetzt n8n statt Papas PC.
