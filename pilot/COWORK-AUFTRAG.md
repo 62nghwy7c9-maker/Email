@@ -29,21 +29,22 @@ darum bitten muss. Richte deshalb als Erstes ein:
 3. Danach gilt die Regel aus `CLAUDE.md`: nach jeder Code-Änderung und vor jeder Auslieferung
    selbst prüfen **plus** `codex review --uncommitted` als zweite Meinung — unaufgefordert.
 
-## Bereits gefundene Fehler — bitte zuerst beheben
+## Stand der Prüfung
 
-Eine erste Prüfung (nur Claude, ohne Codex) hat zwei Punkte ergeben, die vor dem ersten
-echten Lauf behoben sein müssen. Bitte von beiden Systemen gegenprüfen lassen:
+Eine erste Prüfung (nur Claude, ohne Codex) fand zwei „Muss"-Fehler. **Beide sind behoben
+und mit Gegenprobe getestet** — bitte trotzdem von Codex gegenprüfen lassen, sobald er läuft:
 
-1. **Erster Lauf holt das ganze Postfach.** `pilot/triage.py` Zeile 86: ohne `state.json`
-   wird als Startdatum 1970 gesetzt → jede jemals empfangene Mail ginge an die KI.
-   Vorschlag: beim ersten Lauf auf die letzten 7 Tage begrenzen.
-2. **Fremder Text landet ungefiltert im Briefing.** `pilot/triage.py` Zeile 168–172:
-   Absendername und KI-Text werden ohne Maskierung in HTML eingesetzt — ein präparierter
-   Absendername könnte im Briefing einen falschen Link platzieren. Vorschlag: `html.escape()`.
+1. ✅ **Erster Lauf holt nicht mehr das ganze Postfach** — begrenzt auf die letzten Tage,
+   einstellbar über `erster_lauf_tage` in der `config.json` (Standard: 7).
+2. ✅ **Fremder Text im Briefing wird maskiert** — ein präparierter Absendername kann keinen
+   Link mehr einschleusen (mit Angriffs-Testfall geprüft).
+3. ✅ Zusätzlich behoben: Microsofts Ratenbegrenzung (429) wird abgewartet statt Abbruch,
+   und der Mailtext wird als reiner Text statt als HTML abgerufen.
 
-Weitere Punkte aus derselben Prüfung (weniger dringend): kein Umgang mit Microsofts
-Ratenbegrenzung (429), Outlook-Kategorien müssen einmalig angelegt werden, damit sie farbig
-erscheinen, und der Mailtext sollte als reiner Text statt als HTML abgerufen werden.
+**Noch offen (klein):** Die Outlook-Kategorien („🔴 KI: Sofort" usw.) müssen einmalig in
+Outlook angelegt werden, sonst erscheinen sie ohne Farbe. Bitte mit der Nutzerin zusammen machen.
+
+**Nie gegen ein echtes Postfach gelaufen** — der erste echte Testlauf steht noch aus.
 
 ## Deine Aufgabe
 

@@ -3,6 +3,9 @@
 
   "postfach": "hm@durchgeplant.de",
 
+  "_hinweis_erster_lauf": "Wie viele Tage rückwirkend der allererste Lauf ansieht. 7 ist ein guter Start.",
+  "erster_lauf_tage": 7,
+
   "client_id": "HIER-Anwendungs-ID-aus-Azure-einfuegen",
   "tenant_id": "ad2158ae-c05f-4db1-894a-49eae5718ce9",
 

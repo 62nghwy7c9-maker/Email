@@ -12,9 +12,11 @@ Harte Garantien:
 """
 import base64
 import datetime as dt
+import html as html_modul
 import json
 import pathlib
 import sys
+import time
 
 import msal
 import requests
@@ -83,16 +85,28 @@ def graph_token() -> str:
 
 
 def hole_neue_mails(token: str) -> list:
-    seit = "1970-01-01T00:00:00Z"
     if STATE_DATEI.exists():
         seit = json.loads(STATE_DATEI.read_text())["letzter_lauf"]
+    else:
+        # Erster Lauf: bewusst nur die letzten Tage, nie das ganze Postfach.
+        start = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=CONFIG.get("erster_lauf_tage", 7))
+        seit = start.strftime("%Y-%m-%dT%H:%M:%SZ")
+        print(f"Erster Lauf — es werden nur Mails ab {seit} angesehen.")
     url = (f"{GRAPH}/me/mailFolders/inbox/messages"
            f"?$filter=receivedDateTime gt {seit}"
            f"&$select=id,subject,from,receivedDateTime,bodyPreview,body,webLink,categories"
            f"&$orderby=receivedDateTime asc&$top=50")
-    mails, kopf = [], {"Authorization": f"Bearer {token}"}
+    # Mailtext als reinen Text anfordern statt als HTML: weniger Ballast für die KI.
+    kopf = {"Authorization": f"Bearer {token}",
+            "Prefer": 'outlook.body-content-type="text"'}
+    mails = []
     while url:
         r = requests.get(url, headers=kopf, timeout=30)
+        if r.status_code == 429:  # Microsoft bremst — warten und erneut versuchen
+            wartezeit = int(r.headers.get("Retry-After", "10"))
+            print(f"   Microsoft bremst, warte {wartezeit}s …")
+            time.sleep(wartezeit)
+            continue
         r.raise_for_status()
         d = r.json()
         mails += d.get("value", [])
@@ -151,6 +165,11 @@ def baue_excel(eintraege: list) -> bytes:
 
 
 def baue_briefing_html(gruppen: dict, rauschen: list) -> str:
+    # Alles, was aus fremden Mails stammt (Absender, KI-Text), wird maskiert:
+    # ein praeparierter Absendername darf im Briefing keinen Link platzieren koennen.
+    def s(wert) -> str:
+        return html_modul.escape(str(wert if wert is not None else "-"), quote=True)
+
     heute = dt.date.today().strftime("%d.%m.%Y")
     teile = [f"<h2>Briefing {heute}</h2>"]
     titel = {"P1": "🔴 SOFORT", "P2": "🟠 Heute", "P3": "🔵 Diese Woche", "P4": "⚪ Zur Kenntnis"}
@@ -160,11 +179,12 @@ def baue_briefing_html(gruppen: dict, rauschen: list) -> str:
             continue
         teile.append(f"<h3>{titel[stufe]} ({len(eintraege)})</h3><ul>")
         for e in eintraege:
-            teile.append(f"<li><b>{e['absender']}</b>: {e['kern']} — Frist: {e['frist']} — "
-                         f"<i>{e['schritt']}</i> — <a href='{e['link']}'>zur Mail</a></li>")
+            link = s(e.get("link", ""))
+            teile.append(f"<li><b>{s(e['absender'])}</b>: {s(e['kern'])} — Frist: {s(e['frist'])} — "
+                         f"<i>{s(e['schritt'])}</i> — <a href=\"{link}\">zur Mail</a></li>")
         teile.append("</ul>")
     if rauschen:
-        namen = ", ".join(sorted({r['absender'] for r in rauschen})[:8])
+        namen = ", ".join(s(n) for n in sorted({r["absender"] for r in rauschen})[:8])
         teile.append(f"<h3>🟣 Rauschen — zusammengefasst, nichts gelöscht</h3>"
                      f"<p>{len(rauschen)} Mails (u.a. {namen}). Details im Excel-Anhang.</p>")
     return "".join(teile)
