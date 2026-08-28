@@ -3,6 +3,14 @@
 Nutzerin: Kira (non-technical). Arbeitsweise: Phase für Phase, STOPP nach jeder Phase zur Abnahme.
 Projektdateien: 00-fragebogen, 01-kontext, 02-nativ-vs-rest, 03-optionen + PDFs (entscheidungsbogen, entscheidungsvorlage).
 
+## Antwortstil im Chat (ausdrückliches Feedback von Kira, verbindlich)
+
+- **Kurz.** Kira liest lange Antworten nicht zu Ende. Antwort auf die Frage, dann Schluss.
+- **Kein Lob, keine Schmeichelei.** Auch nicht als Nebensatz, auch nicht mit „ohne Schmeichelei" eingeleitet.
+- **Keine Wiederholung** von Dingen, die schon feststehen.
+- Bei „was soll ich tippen/klicken": **die Antwort zuerst**, Begründung höchstens ein Satz.
+- Empfehlung geben statt Optionen aufzählen. Nur fragen, wenn die Antwort die Arbeit wirklich ändert.
+
 ## Selbstprüfung — IMMER, ohne dass Kira darum bittet (verbindlich)
 
 Kira soll nie „prüf das nochmal" schreiben müssen. Deshalb gilt automatisch:
